@@ -111,6 +111,7 @@ class watermelon{
                 let command = e.currentTarget.value
                 _this.commandParse(command)
                 e.currentTarget.value = ''
+                _this.showInput()
         }
         })
     }
