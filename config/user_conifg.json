@@ -1,14 +1,13 @@
 {
 
-    "baidu_Ai_config" :{
+    "baiduAiConfig" :{
         "audio_tts":{
-            "client_id" : "user key",
-            "client_secret": "user key"
+            "APIKey" : "",
+            "SecretKey": ""
         },
-        
         "lexer" : {
-            "client_id" : "user key",
-            "client_secret": "user key"
+            "APIKey" : "",
+            "SecretKey": ""
         }
     },
 
@@ -23,8 +22,6 @@
                 "reply":"需要音乐刺激一下吗？"
             }
         ]
-
     }
-        
     
 }

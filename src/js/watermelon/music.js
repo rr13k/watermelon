@@ -162,7 +162,8 @@ class music {
      */
     sorting(musicList){
         let _this = this
-        musicList.forEach((music,index) => {
+        musicList.forEach((music) => {
+            let index = 0
             if(music.name.indexOf(_this.newSeachName) > -1){
                 index++
                 if(music.name == _this.newSeachName){
@@ -172,22 +173,12 @@ class music {
             music.index = index
         });
         let _list = musicList.sort((a,b)=>{
-            return b.index -  a.index
+            return b.index - a.index
         })
         console.log("排序后的音乐列表",_list)
         return _list
     }
-    
-    tidyData(data,type,num){  
-        var _music = {}
-        switch(type){
-            case 0: //网易云
-                break
-        }
-    }
+
 }
 
 exports.music = music
-// setTimeout(() => {
-// music.showMusicList([])
-// }, 1000);

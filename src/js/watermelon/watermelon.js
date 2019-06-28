@@ -92,7 +92,7 @@ class watermelon{
 
     renderElf(){
         var _this = this
-        var face=`<img id="face"  src="./src/assets/watermelon.png"/>`
+        var face=`<img id="face"  src="./assets/watermelon.png"/>`
         var face = $('body').append(face)
         $(`#face`).on("click",()=>{
         _this.initSoureX != window.screenLeft ? _this.initSoureX = window.screenLeft : this.showInput()
@@ -104,7 +104,7 @@ class watermelon{
         let _this = this
         let user_input_control = `<div  id="user_input_control">
         <input type="text" value="" id="user_input" placeholder="search">
-        <img src="./src/assets/yin_tao.svg" class="inputIco"></div>`
+        <img src="./assets/yin_tao.svg" class="inputIco"></div>`
         $('body').append(user_input_control)
         $(`#user_input`).on("keydown",(e)=>{
             if(e.keyCode==13){

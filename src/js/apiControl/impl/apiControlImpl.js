@@ -4,8 +4,8 @@ const {xmlHttp} = require("../../tools/xmlHttp");
 class apiControlImpl{
 
     getBaiduToken(AiType,callback){
-        let userConfig = JSON.parse(localStorage.getItem('userConfig')).baidu_Ai_config
-        let url = `https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=${userConfig[AiType].client_id}&client_secret=${userConfig[AiType].client_secret}`
+        let userConfig = JSON.parse(localStorage.getItem('userConfig')).baiduAiConfig
+        let url = `https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=${userConfig[AiType].APIKey}&client_secret=${userConfig[AiType].SecretKey}`
         xmlHttp.get({url},res=>{
             callback(res)
         })

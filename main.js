@@ -8,13 +8,13 @@ var child_win = []
 
 function createWindow() {
     win = new BrowserWindow({
-        width: 900,
-        height: 900,
-        // width: 150,
-        // height: 170,
-        // alwaysOnTop:true,
-        // skipTaskbar:true,
-        // autoHideMenuBar:true,
+        // width: 900,
+        // height: 900,
+        width: 150,
+        height: 170,
+        alwaysOnTop:true,
+        skipTaskbar:true,
+        autoHideMenuBar:true,
 
         frame:false,
         transparent:true, //开启调试会使该属性无效
@@ -24,7 +24,7 @@ function createWindow() {
         }
     })
     win.loadFile('index.html')
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
     win.on('closed', () => {
         win = null
     })
