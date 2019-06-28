@@ -1,0 +1,105 @@
+
+
+/*- user input start */
+#user_input_control{
+    position: relative;
+    width: 133px;
+    display: none;
+}
+
+#user_input{
+padding-right: 25px;
+    padding-left: 11px;
+    border-radius: 16px;
+    border: 1px solid #ccc;
+    width: 110px;
+    height: 15px;
+}
+
+#user_input:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(247, 176, 176, 0.34), 0 0 8px rgba(149, 240, 174, 0.6);
+    box-shadow: inset 0 1px 1px rgba(247, 176, 176, 0.34), 0 0 8px rgba(223, 97, 97, 0.6);
+    outline: none;
+}
+
+.inputIco{
+    box-shadow: inset 5em 1em #cdffec1f;
+    border-radius: 50%;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -8px;
+    top: 2px;
+}
+
+/* user input  end-*/
+
+#textInput{
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    width: 250px;
+    height: 30px;
+    padding-left: 10px;
+    outline:none
+}
+
+audio{
+    display: none;
+}
+
+.text {
+    position: fixed;
+    right: 10%;
+    bottom: 10%;
+    color: #ff903f;
+    padding: 5px;
+}
+
+.text:hover{
+    background-color: #f9f9f9;
+}
+
+
+
+#mouth{
+    position: absolute;
+    margin: 0 auto;
+    width: 200px;
+    height: 40px;
+    background-color: #8c8c8c;
+    left: 0;
+    right: 0;
+    bottom: -30px;
+}
+
+.eye{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    z-index: 99;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+}
+
+#face{
+    user-select: none;
+    -moz-window-dragging: false;
+    -webkit-user-drag: none;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width:150px;
+    height:150px;
+    
+}

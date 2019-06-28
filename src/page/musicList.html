@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <title>music</title>
+</head>
+<body>
+    <div id="app">
+        <b class="_close" onclick="closeSelf()">x</b>  
+
+        <table  class="music_table"  cellpadding="0" cellspacing="0" >
+            <tr  class="table_th">
+            <th style="text-align: center">序号</th>
+            <th>歌名</th>
+            <th>平台</th>
+            <th>歌手</th>
+            <th>所属专辑</th>
+            <th style="text-align: center">时长</th>
+            </tr>
+            <tr v-for="i,index in list" class="table_tr">
+                <td v-text="index + 1" style="text-align: center"></td>
+                <td v-text="i.name" ></td>
+                <td v-text="companyToName(i.company)"></td>
+                <td v-text="i.singer"></td>
+                <td v-text="i.album"></td>
+                <td v-text="i.time" style="text-align: center"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    const ipc = require('electron').ipcRenderer
+    ipc.on('music_data_update', function (event, data) {
+        init()
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            list: []
+        },
+        methods: {
+            getsinger(singer){
+                return  typeof singer == 'string' ? singer :  singer.toString();
+            },
+            companyToName(company){
+                switch(company){
+                    case "netease":
+                        return "网易云"
+
+                    case "tencent":
+                        return "QQ音乐"
+
+                    case "kugou":
+                        return "酷狗"
+
+                    case "migu":
+                        return "咪咕"
+                }
+            }
+        },
+    })
+
+    function closeSelf(){
+        window.close()
+    }
+
+    function init() {
+        var data = JSON.parse(localStorage.getItem("musicList"))
+        app.list = data
+    }
+    init()
+</script>
+
+</html>
+
+<style>
+    ._close{
+        font-size: 18px;
+        position: absolute;
+        right: 7px;
+        color: #d2c8c8;
+        padding: 3px;
+        cursor: pointer;
+    }
+
+    ._close:hover{
+        color: red;
+    }
+
+    .music_table{
+        background-color: rgb(250, 250, 250);
+        margin: 0 auto;
+        color: #524e4e;
+        text-align: left;
+        border-radius: 2%;
+        border: solid 20px rgb(255, 255, 255);
+        -moz-box-shadow:2px 6px 20px #e8e0e0; -webkit-box-shadow:2px 5px 23px #e8e0e0; box-shadow:2px 5px 23px #e8e0e0;
+    }
+
+    .table_th{
+        -webkit-app-region:drag;
+        background-color: rgb(255, 255, 255);
+        color: rgb(156, 156, 156);
+        line-height: 45px;
+    }
+
+    .table_tr:nth-child(even){
+        background-color: #b9b6b600;
+    }
+
+    td{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 30px;
+        max-width: 160px;
+    }
+
+    .table_th > th{
+        min-width: 40px;
+        padding:  0 10px;
+        border-bottom: solid 4px rgb(247,247,247);
+    }
+
+    body,html{
+        text-align: center;
+        font-family: "Hiragino Sans GB", "Microsoft YaHei", "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .table_tr{
+        background-color: rgb(255, 255, 255);
+        line-height: 30px;
+    }
+
+    .table_tr > td{
+        padding: 0 10px;
+    }
+    
+    #app{
+        user-select: none;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        display: inline-block;
+    }
+    .table_tr:hover{
+        background-color: rgba(165, 159, 159, 0.07);
+    }
+</style>

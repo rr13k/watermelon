@@ -1,0 +1,61 @@
+{
+
+    "baidu_Ai_config" :{
+        "audio_tts":{
+            "client_id" : "UGNGLM0Iokl7O95x9FevGq5w",
+            "client_secret": "7Y1aCRySrazDESHy3KWBSwurPiX2jCcu"
+        },
+        
+        "lexer" : {
+            "client_id" : "Tz3Y4vOiow9eu4dKwIP8DWCR",
+            "client_secret": "lLEsTQ3k7vWmIi5q6SAfcIwYU4jtepr4"
+        }
+    },
+
+    "parse":{
+        "keyword":[
+            {
+                "key": ["搜索","查找","给我"],
+                "value":"{@search}"
+            },
+            {
+                "key": ["播放","play","选择"],
+                "value":"{@play}"
+            }
+        ],
+    
+        "input":[
+            {
+                "medium": ["音乐","歌","歌曲"],
+                "target":"music"
+            },
+            {
+                "target":"chat"
+            }
+
+        ],
+    
+        "music" :{
+            "operation" :  ["{@search}音乐{songName}","{@search}{singer}的音乐","{@search}{singer}的歌","{@search}{singer}的歌曲","{@search}{singer}的{songName}",
+                "{@play}音乐{songName}","{@play}音乐","{@play}{singer}的{songName}","我要听歌","来首歌听听"],
+            "music_tager":{
+                "name":"{songName}",
+                "singer":"{singer}"
+            }
+        },
+    
+        "chat":[
+            {
+                "say":"你好呀",
+                "reply":"见到你很高兴,主人!"
+            },
+            {
+                "say":"好无聊",
+                "reply":"需要音乐刺激一下吗？"
+            }
+        ]
+
+    }
+        
+    
+}
